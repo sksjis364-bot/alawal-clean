@@ -1,0 +1,196 @@
+تم تحديث شبكة الخدمات لتشمل كافة الخدمات التي طلبتها (**تنظيف شقق ومنازل، فلل، مجالس، ستائر، سجاد، وخزانات**) مع إضافة أيقونات ووصف مناسب لكل خدمة.
+
+إليك الكود المعدل بالكامل والجاهز للنسخ:
+
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ركن الأول للتنظيف | خدمات تنظيف وتعقيم شاملة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --accent: #10b981;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --bg: #f8fafc;
+      --white: #ffffff;
+      --card-border: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+    body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+
+    /* Header */
+    header { background: var(--white); border-bottom: 1px solid var(--card-border); padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
+    .nav { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.4rem; font-weight: 800; color: var(--primary); display: flex; flex-direction: column; }
+    .logo small { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 700; text-decoration: none; transition: 0.2s; }
+    .btn-primary { background: var(--primary); color: var(--white); }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-whatsapp { background: var(--accent); color: var(--white); }
+
+    /* Hero */
+    .hero { text-align: center; padding: 4rem 0 2.5rem; }
+    .badge { display: inline-block; background: #e0f2fe; color: var(--primary); padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 800; line-height: 1.3; }
+    .hero h1 span { color: var(--primary); }
+    .hero p { color: var(--text-muted); max-width: 650px; margin: 0 auto 2rem; font-size: 1.1rem; }
+    .cta-group { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+    /* Banner */
+    .banner { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: var(--white); border-radius: 16px; padding: 1.5rem 2rem; margin: 2rem 0 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+
+    /* Services Grid */
+    .services { padding: 2rem 0 4rem; }
+    .title { text-align: center; margin-bottom: 2.5rem; }
+    .title h2 { font-size: 2rem; font-weight: 800; }
+    .title p { color: var(--text-muted); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+    .card { background: var(--white); border: 1px solid var(--card-border); border-radius: 14px; padding: 1.5rem; text-align: right; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .card-icon { font-size: 2.2rem; margin-bottom: 0.5rem; }
+    .card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--primary); }
+    .card p { color: var(--text-muted); font-size: 0.95rem; }
+
+    /* Features */
+    .features { background: var(--white); border: 1px solid var(--card-border); border-radius: 16px; padding: 3rem 1.5rem; text-align: center; margin-bottom: 4rem; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .feature-box { background: var(--bg); padding: 1.25rem; border-radius: 12px; border: 1px solid var(--card-border); }
+
+    /* Floating Quick Bar */
+    .floating-bar { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 100; }
+    .floating-btn { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.15); font-size: 1.3rem; }
+
+    /* Footer */
+    footer { background: var(--white); text-align: center; padding: 2rem 0; border-top: 1px solid var(--card-border); color: var(--text-muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <!-- شريط التنقل -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        مؤسسة ركن الأول للتنظيف
+        <small>خدمات نظافة وتعقيم متكاملة</small>
+      </div>
+      <a href="tel:0581459127" class="btn btn-primary">اتصل الآن ☎</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- الواجهة الرئيسية -->
+    <section class="hero">
+      <span class="badge">● الخيار الأول لنظافة بيتك</span>
+      <h1>نظافة مثالية وبيئة صحية<br><span>مع ركن الأول للتنظيف</span></h1>
+      <p>نقدم أفضل خدمات تنظيف الشقق، المنازل، الفلل، المجالس، الستائر، السجاد، والخزانات بأحدث أجهزة البخار والمضخات ومواد تعقيم آمنة ومضمونة 100%.</p>
+      
+      <div class="cta-group">
+        <a href="whatsapp://send?phone=966581459127" class="btn btn-whatsapp">تواصل واتساب 💬</a>
+        <a href="tel:0581459127" class="btn btn-primary">اتصال مباشر ☎</a>
+      </div>
+    </section>
+
+    <!-- شريط العرض -->
+    <div class="banner">
+      <div>
+        <h3>عروض خاصة من ركن الأول للتنظيف</h3>
+        <p>خصومات حصرية عند طلب أكثر من خدمة تنظيف أو تعقيم اليوم</p>
+      </div>
+      <div>
+        <strong>احجز موعدك الآن</strong>
+      </div>
+    </div>
+
+    <!-- الخدمات -->
+    <section class="services">
+      <div class="title">
+        <h2>خدماتنا الاحترافية</h2>
+        <p>حلول تنظيف متكاملة تلبي كافة احتياجات منزلك أو منشأتك</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon">🏢</div>
+          <h3>تنظيف شقق ومنازل</h3>
+          <p>تنظيف شامل وعميق للغرف، الصالات، الغبار، والأرضيات لضمان بيئة صحية ونقية.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏰</div>
+          <h3>تنظيف الفلل والقصور</h3>
+          <p>خدمات تنظيف متكاملة للفلل تشمل الواجهات، المطابخ، الحمامات، والأحواش بأحدث المعدات.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🛋️</div>
+          <h3>تنظيف مجالس وكنب</h3>
+          <p>غسيل وتعقيم الكنب والمجالس بالبخار لإزالة أصعب البقع والروائح مع الحفاظ على الأقمشة.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🪟</div>
+          <h3>تنظيف وتعقيم الستائر</h3>
+          <p>تنظيف الستائر في مكانها بأحدث تقنيات البخار بدون الحاجة للفك والتركيب.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🧹</div>
+          <h3>غسيل سجاد وموكيت</h3>
+          <p>تنظيف عميق للسجاد والموكيت والتخلص من الأتربة والفطريات مع التعطير والتعقيم.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">💧</div>
+          <h3>تنظيف وتعقيم الخزانات</h3>
+          <p>غسيل وتطهير خزانات المياه الأرضية والعلوية بمواد معتمدة لضمان مياه نقية وصحية.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- مميزات الشركة -->
+    <section class="features">
+      <h2>لماذا تختار ركن الأول للتنظيف؟</h2>
+      <div class="features-grid">
+        <div class="feature-box">
+          <h3>👨‍🔧 عمالة مدربة</h3>
+          <p>فريق محترف يمتلك الخبرة والأمانة في التعامل مع جميع أنواع الأثاث والممتلكات.</p>
+        </div>
+        <div class="feature-box">
+          <h3>⚡ أجهزة حديثة</h3>
+          <p>نستخدم أحدث أجهزة التنظيف بالبخار والمضخات عالية الكفاءة.</p>
+        </div>
+        <div class="feature-box">
+          <h3>🛡️ مواد آمنة 100%</h3>
+          <p>منظفات ومعقمات معتمدة وآمنة تماماً على صحة عائلتك والأطفال.</p>
+        </div>
+        <div class="feature-box">
+          <h3>⏱️ التزام بالمواعيد</h3>
+          <p>دقة وسرعة في تنفيذ الخدمات والتواجد في الوقت المحدد دون تأخير.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- أزرار الاتصال العائمة -->
+  <div class="floating-bar">
+    <a href="whatsapp://send?phone=966581459127" class="floating-btn" style="background-color: #25d366;" title="واتساب">💬</a>
+    <a href="tel:0581459127" class="floating-btn" style="background-color: var(--primary);" title="اتصال">📞</a>
+  </div>
+
+  <!-- التذييل -->
+  <footer>
+    <div class="container">
+      <p>© جميع الحقوق محفوظة لـ <strong>مؤسسة ركن الأول للتنظيف</strong></p>
+    </div>
+  </footer>
+
+</body>
+</html>
+
+```
