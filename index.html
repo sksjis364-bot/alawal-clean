@@ -1,6 +1,3 @@
-تم تحديث شبكة الخدمات لتشمل كافة الخدمات التي طلبتها (**تنظيف شقق ومنازل، فلل، مجالس، ستائر، سجاد، وخزانات**) مع إضافة أيقونات ووصف مناسب لكل خدمة.
-
-إليك الكود المعدل بالكامل والجاهز للنسخ:
 
 ```html
 <!DOCTYPE html>
@@ -57,10 +54,12 @@
     .title { text-align: center; margin-bottom: 2.5rem; }
     .title h2 { font-size: 2rem; font-weight: 800; }
     .title p { color: var(--text-muted); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
-    .card { background: var(--white); border: 1px solid var(--card-border); border-radius: 14px; padding: 1.5rem; text-align: right; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-    .card-icon { font-size: 2.2rem; margin-bottom: 0.5rem; }
-    .card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--primary); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .card { background: var(--white); border: 1px solid var(--card-border); border-radius: 14px; overflow: hidden; text-align: right; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: transform 0.2s; }
+    .card:hover { transform: translateY(-4px); }
+    .card-img { width: 100%; height: 200px; object-fit: cover; }
+    .card-body { padding: 1.5rem; }
+    .card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--primary); }
     .card p { color: var(--text-muted); font-size: 0.95rem; }
 
     /* Features */
@@ -120,36 +119,61 @@
         <p>حلول تنظيف متكاملة تلبي كافة احتياجات منزلك أو منشأتك</p>
       </div>
       <div class="grid">
+        
+        <!-- خدمة تنظيف شقق ومنازل -->
         <div class="card">
-          <div class="card-icon">🏢</div>
-          <h3>تنظيف شقق ومنازل</h3>
-          <p>تنظيف شامل وعميق للغرف، الصالات، الغبار، والأرضيات لضمان بيئة صحية ونقية.</p>
+          <img class="card-img" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80" alt="تنظيف شقق ومنازل">
+          <div class="card-body">
+            <h3>🏢 تنظيف شقق ومنازل</h3>
+            <p>تنظيف شامل وعميق للغرف، الصالات، الغبار، والأرضيات لضمان بيئة صحية ونقية.</p>
+          </div>
         </div>
+
+        <!-- خدمة تنظيف الفلل -->
         <div class="card">
-          <div class="card-icon">🏰</div>
-          <h3>تنظيف الفلل والقصور</h3>
-          <p>خدمات تنظيف متكاملة للفلل تشمل الواجهات، المطابخ، الحمامات، والأحواش بأحدث المعدات.</p>
+          <img class="card-img" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="تنظيف الفلل والقصور">
+          <div class="card-body">
+            <h3>🏰 تنظيف الفلل والقصور</h3>
+            <p>خدمات تنظيف متكاملة للفلل تشمل الواجهات، المطابخ، الحمامات، والأحواش بأحدث المعدات.</p>
+          </div>
         </div>
+
+        <!-- خدمة تنظيف المجالس -->
         <div class="card">
-          <div class="card-icon">🛋️</div>
-          <h3>تنظيف مجالس وكنب</h3>
-          <p>غسيل وتعقيم الكنب والمجالس بالبخار لإزالة أصعب البقع والروائح مع الحفاظ على الأقمشة.</p>
+          <img class="card-img" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80" alt="تنظيف مجالس وكنب">
+          <div class="card-body">
+            <h3>🛋️ تنظيف مجالس وكنب</h3>
+            <p>غسيل وتعقيم الكنب والمجالس بالبخار لإزالة أصعب البقع والروائح مع الحفاظ على الأقمشة.</p>
+          </div>
         </div>
+
+        <!-- خدمة تنظيف الستائر -->
         <div class="card">
-          <div class="card-icon">🪟</div>
-          <h3>تنظيف وتعقيم الستائر</h3>
-          <p>تنظيف الستائر في مكانها بأحدث تقنيات البخار بدون الحاجة للفك والتركيب.</p>
+          <img class="card-img" src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="تنظيف وتعقيم الستائر">
+          <div class="card-body">
+            <h3>🪟 تنظيف وتعقيم الستائر</h3>
+            <p>تنظيف الستائر في مكانها بأحدث تقنيات البخار بدون الحاجة للفك والتركيب.</p>
+          </div>
         </div>
+
+        <!-- خدمة غسيل سجاد -->
         <div class="card">
-          <div class="card-icon">🧹</div>
-          <h3>غسيل سجاد وموكيت</h3>
-          <p>تنظيف عميق للسجاد والموكيت والتخلص من الأتربة والفطريات مع التعطير والتعقيم.</p>
+          <img class="card-img" src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=600&q=80" alt="غسيل سجاد وموكيت">
+          <div class="card-body">
+            <h3>🧹 غسيل سجاد وموكيت</h3>
+            <p>تنظيف عميق للسجاد والموكيت والتخلص من الأتربة والفطريات مع التعطير والتعقيم.</p>
+          </div>
         </div>
+
+        <!-- خدمة تنظيف الخزانات -->
         <div class="card">
-          <div class="card-icon">💧</div>
-          <h3>تنظيف وتعقيم الخزانات</h3>
-          <p>غسيل وتطهير خزانات المياه الأرضية والعلوية بمواد معتمدة لضمان مياه نقية وصحية.</p>
+          <img class="card-img" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" alt="تنظيف وتعقيم الخزانات">
+          <div class="card-body">
+            <h3>💧 تنظيف وتعقيم الخزانات</h3>
+            <p>غسيل وتطهير خزانات المياه الأرضية والعلوية بمواد معتمدة لضمان مياه نقية وصحية.</p>
+          </div>
         </div>
+
       </div>
     </section>
 
